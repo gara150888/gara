@@ -1,11 +1,15 @@
 <?php
-// Enter your code here, enjoy!
-$array = array("1" => "PHP code tester Sandbox Online",
-    "emoji" => "😀 😃 😄 😁 😆", 5 , 5 => 89009,
-    "Random number" => rand(100,999),
-    "PHP Version" => phpversion()
-);
 
-foreach( $array as $key => $value ){
-    echo $key."\t=>\t".$value."\n";
+header('Content-Type: application/json');
+
+$response = file_get_contents('https://ipinfo.io/json');
+
+if ($response === false) {
+    http_response_code(500);
+    echo json_encode(['error' => 'Failed to fetch IP info']);
+    exit;
 }
+
+echo $response;
+
+?>
