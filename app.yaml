@@ -1,0 +1,6 @@
+kind: wasmer.io/App.v0
+name: gara
+owner: gara150888
+package: .
+scaling:
+  mode: single_concurrency
